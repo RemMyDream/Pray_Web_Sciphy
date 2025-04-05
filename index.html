@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Góc Cầu Nguyện</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #fffbea;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      resize: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      background: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #d81b60;
+    }
+
+    .wish-paper {
+      margin-top: 30px;
+      background: #fff;
+      border: 2px dashed #e91e63;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .wish-paper h2 {
+      margin-bottom: 10px;
+      color: #e91e63;
+    }
+
+    .wish-text {
+      font-style: italic;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌸 Góc Cầu Nguyện 🌸</h1>
+    <p>Nhập điều ước của bạn và gửi lời nguyện</p>
+    <textarea id="wishInput" rows="3" placeholder="Con ước rằng..."></textarea>
+    <br>
+    <button onclick="submitWish()">Cầu nguyện 💫</button>
+  </div>
+
+  <div id="wishPaper" class="wish-paper" style="display:none;">
+    <h2>📝 Tờ giấy điều ước</h2>
+    <p class="wish-text" id="wishText"></p>
+  </div>
+
+  <script>
+    function submitWish() {
+      const wish = document.getElementById("wishInput").value.trim();
+      const wishPaper = document.getElementById("wishPaper");
+      const wishText = document.getElementById("wishText");
+
+      if (wish !== "") {
+        wishText.textContent = `"${wish}"`;
+        wishPaper.style.display = "block";
+        document.getElementById("wishInput").value = "";
+      } else {
+        alert("Hãy nhập điều ước trước khi cầu nguyện nhé!");
+      }
+    }
+  </script>
+</body>
+</html>
